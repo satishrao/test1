@@ -35,7 +35,7 @@
       {
 	      scanner.stop().then(fucntion({
 		scanner.start(cam[0]); 
-         });
+         }).catch(function (e) { console.error(e); });
 	  
 	      a = 1;
       }
@@ -45,7 +45,7 @@
   		});
 	         a = 0 ; 
 	      }
-});
+}).catch(function (e) { console.error(e); });
     </script>
    
 </body>
