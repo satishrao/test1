@@ -8,7 +8,7 @@
 </head>
 <body>
   
-    <h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff4.com</h1>
+    <h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff5.com</h1>
 
     <video id="preview"></video>
 	<button id="flip" >Flip </button>
@@ -33,14 +33,14 @@
   document.getElementById("flip").addEventListener("click", function(){
       if (a == 0) 
       {
-	      scanner.stop().then(fucntion(){
+	      scanner.stop().then(fucntion({
 		scanner.start(cam[0]); 
          });
 	  
 	      a = 1;
       }
        else 
-	      {  scanner.stop().then(function () {
+	      {  scanner.stop().then(function ( {
 		 scanner.start(cam[1]);
   		});
 	         a = 0 ; 
