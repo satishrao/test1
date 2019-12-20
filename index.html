@@ -8,8 +8,8 @@
 </head>
 <body>
   
-    <h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff1.com</h1>
-
+    <h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff2.com</h1>
+    <video id="preview1"></video>
     <video id="preview"></video>
 	<button id="flip" >Flip </button>
     <script type="text/javascript">
@@ -18,16 +18,17 @@
         alert(content);
       });
 
-      let scanner1 = new Instascan.Scanner({ video: document.getElementById('preview'),mirror: false });
-      scanner.addListener('scan', function (content) {
+      let scanner1 = new Instascan.Scanner({ video: document.getElementById('preview1'),mirror: false });
+      scanner1.addListener('scan', function (content) {
         alert(content);
       });
     
       Instascan.Camera.getCameras().then(function (cameras) {
-	      console.log(cameras.length);
+	      console.log(cameras);
 	      cam = cameras;
         if (cameras.length > 0) {
           scanner.start(cameras[0]);
+	  scanner1.start(cameras[1]);
         } else {
           console.error('No cameras found.');
         }
@@ -38,12 +39,14 @@
   document.getElementById("flip").addEventListener("click", function(){
       if (a == 0) 
       {
+	      scanner1.stop();
 	      console.log("front");
 	      scanner.start(cam[0]); 
               a = 1;
       }
        else 
 	      {  
+		 scanner.stop();
 		 console.log("back");
 		 scanner1.start(cam[1]);
 	         a = 0 ;
