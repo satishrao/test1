@@ -11,8 +11,19 @@ navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "enviro
 <body>
   
     <h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff.com</h1>
-    
-    <video id="preview"></video>
+    <script>
+       var video1 = document.querySelector("#videoElement");
+	if (navigator.mediaDevices.getUserMedia) {
+  		navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "environment" } })
+    	.then(function (stream) {
+      		video1.srcObject = stream;
+    	})
+    	.catch(function (err0r) {
+      		console.log("Something went wrong!");
+    	});
+}
+	</script>
+    <video id="videoElement"></video>
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
