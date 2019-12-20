@@ -29,7 +29,16 @@
       });
 	    
   document.getElementById("flip").addEventListener("click", function(){
-      if (a == 0) scanner.start(camera[0]); else { scanner.start(camera[1]); a =1 ; }
+      if (a == 0) 
+      {
+	      scanner.stop();
+	      scanner.start(camera[0]); 
+      }
+       else 
+	      {  scanner.stop();
+		 scanner.start(camera[1]); 
+	         a = 1 ; 
+	      }
 });
     </script>
    
